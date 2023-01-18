@@ -1,0 +1,89 @@
+= Ahorcado - 2022
+Lucas Prieto 43.626.494/2020 <lucasprieto30@gmail.com>; Giannina Perez 43.729.769/2020 <giannina-b-perez@hotmail.com>;
+v1, {docdate}. Docentes: Javier Marenco y Patricia Bagnes (COM-01)
+:title-page:
+:numbered:
+:source-highlighter: coderay
+:tabsize: 4
+
+== Introducción
+
+Desarrollo del juego del Ahorcado a través de una interfaz gráfica de Eclipse, en Java.
+El juego consiste en adivinar un animal ingresando letra por letra para formar la palabra. El jugador tiene 6 posibilidades de error, si falla 6 veces pierde el juego. Si completa la palabra, gana y puede seguir adivinando más animales.
+
+== Estructura de datos
+
+*palabras y letrasUsadas (Conjunto):* No tienen tamaño definido, las palabras y letras no se repiten, no
+es necesario que estén ordenadas, son del mismo tipo (String).
+
+== Implementación
+
+*Ahorcado*
+
+`void leerPalabras():` Lee cada linea (que corresponde a un animal) del archivo animales.txt y lo
+agrega al conjunto palabras.
+
+`String seleccionarPalabra():` Selecciona y devuelve la palabra a adivinar.
+
+`void agregarLetra(letra):` Agrega la letra al conjunto letrasUsadas
+
+`Boolean letraAcertada(letra):` Devuelve true en caso de que la letra pertenezca a la palabra que se
+está adivinando.
+
+`Boolean letraRepetida(letra):` Devuelve true si la letra ya se intentó adivinar.
+
+`void restarIntento():` Resta en uno los intentos restantes.
+
+`int contarCaracterEnCadena(cadena, caracter):` Devuelve la cantidad de apariciones de un carácter
+en una cadena.
+
+`void restarGuion(letra):` Resta los guiones en la cantidad de apariciones que tenga la letra en la
+palabra.
+
+`Boolean juegoTerminado():` Devuelve true si se adivinó la palabra completa o si se acabaron los
+intentos.
+
+`void verificarLetraIngresada(letra):` Verifica que el usuario no haya ingresado un número, un carácter
+extraño o un texto. Y resta los guiones o intentos según corresponda.
+
+`String mostrarPalabraCifrada():` Devuelve la palabra a adivinar con guiones en los lugares de las
+letras que aún no se adivinaron.
+
+`void reiniciarJuego():` Selecciona una nueva palabra, resetea los intentos y las letras usadas.
+
+`String mensajeActual(letra):` Devuelve un mensaje de error o de fin de juego según corresponda.
+
+`String mensajeFinDeJuego():` Devuelve un mensaje de victoria o derrota según corresponda.
+
+`String mensajeError(letra):` Devuelve un mensaje avisando al usuario que no puede ingresar más de
+un carácter.
+
+`String mensajeReiniciar():` Devuelve “Jugar de nuevo”.
+
+*Interfaz*
+
+`void initialize():` Inicializa y configura el marco y todos sus componentes.
+
+`String obtieneLetra():` Devuelve lo que el usuario ingreso en el campo de texto.
+
+`String palabraEspaciada(palabra):` Devuelve la palabra separada por espacios intermedios.
+
+`String mostrarLetrasUsadas(letrasUsadas):` Devuelve las letras que ya han sido ingresadas por el
+usuario.
+
+`void reiniciar(btn):` Si el juego terminó, cambia el mensaje del boton y reinicia el juego.
+
+
+== Decisiones de diseño
+
+- Para implementar nuestra GUI, utilizamos la arquitectura Forms And Controls. Nos pareció la
+opción más óptima ya que nuestro proyecto no requería una interfaz muy compleja y
+pudimos evitar que el código de ésta quede muy recargado.
+
+- Agregamos los métodos `mensajeActual(String letra)`, `mensajeFinDeJuego()`, `mensajeError(
+String letra)` y `mensajeReiniciar()` en Ahorcado, para recibir las Strings directamente desde el
+código de negocio y ahorrar código en nuestra interfaz.
+
+- Agregamos verificaciones para que el usuario solo pueda ingresar las letras del abecedario,
+y en el caso que ingrese otro carácter (como un número) o más de un carácter, no se le reste
+un intento, pero si se le avise a través de un mensaje en pantalla.
