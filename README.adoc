@@ -1,5 +1,5 @@
 = Ahorcado - 2022
-Lucas Prieto 43.626.494/2020 <lucasprieto30@gmail.com>; Giannina Perez 43.729.769/2020 <giannina-b-perez@hotmail.com>;
+Giannina Perez 43.729.769/2020 <giannina-b-perez@hotmail.com>;
 v1, {docdate}. Docentes: Javier Marenco y Patricia Bagnes (COM-01)
 :title-page:
 :numbered:
@@ -78,12 +78,12 @@ usuario.
 
 - Para implementar nuestra GUI, utilizamos la arquitectura Forms And Controls. Nos pareció la
 opción más óptima ya que nuestro proyecto no requería una interfaz muy compleja y
-pudimos evitar que el código de ésta quede muy recargado.
+pudimos evitar que el código quede muy recargado.
 
 - Agregamos los métodos `mensajeActual(String letra)`, `mensajeFinDeJuego()`, `mensajeError(
 String letra)` y `mensajeReiniciar()` en Ahorcado, para recibir las Strings directamente desde el
 código de negocio y ahorrar código en nuestra interfaz.
 
 - Agregamos verificaciones para que el usuario solo pueda ingresar las letras del abecedario,
-y en el caso que ingrese otro carácter (como un número) o más de un carácter, no se le reste
+y en el caso de que ingrese otro caracter (como un número) o más de un carácter, no se le reste
 un intento, pero si se le avise a través de un mensaje en pantalla.
